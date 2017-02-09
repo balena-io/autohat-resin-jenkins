@@ -7,13 +7,14 @@ for (( c=0; c<${FTDI_strings_count}; c=c+3 ))
 do
 	if [ "${FTDI_strings[c]}" == "Resin.io" ]
 	then
-		device_type=$(echo ${FTDI_strings[c+1]} | cut -d ":" -f2 )
+		device_type=$(echo ${FTDI_strings[c+1]} | cut -d ":" -f2 | cut -d "[" -f1 )
+		sku=$(echo ${FTDI_strings[c+1]} |  cut -d ":" -f2 | cut -d "[" -f2 | cut -d "]" -f1)
 		rig_device_id=${FTDI_strings[c+2]}
-		ATTACHED_Rigs+=(${device_type}_${rig_device_id})
-		if ! systemctl -q is-active autohat_jenkins_slave@${device_type}_${rig_device_id}
+		ATTACHED_Rigs+=(${rig_device_id}_${device_type}_${sku})
+		if ! systemctl -q is-active autohat_jenkins_slave@${rig_device_id}_${device_type}_${sku}
 		then
-			echo "Activating: ${device_type}_${rig_device_id}"
-			systemctl start autohat_jenkins_slave@${device_type}_${rig_device_id}
+			echo "Activating: ${rig_device_id}_${device_type}_${sku}"
+			systemctl start autohat_jenkins_slave@${rig_device_id}_${device_type}_${sku}
 		fi
 
 	fi
