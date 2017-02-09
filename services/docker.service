@@ -1,0 +1,14 @@
+[Unit]
+Description=Docker in Docker 
+After=syslog.target
+
+[Service]
+Restart=always
+RestartSec=10s
+ExecStart=/usr/local/bin/dockerd \
+    --host=unix:///var/run/docker.sock \
+    --storage-driver=vfs \
+    --graph=/data/docker
+
+[Install]
+WantedBy=multi-user.target

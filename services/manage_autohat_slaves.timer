@@ -1,0 +1,12 @@
+[Unit]
+Description=Runs AutoHAT jenkins slave spawner every 3 mins
+
+[Timer]
+# Time to wait after booting before we run first time
+OnBootSec=10min
+# Time between running each consecutive time
+OnUnitActiveSec=3min
+Unit=manage_autohat_slaves.service
+
+[Install]
+WantedBy=multi-user.target

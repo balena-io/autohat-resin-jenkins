@@ -1,0 +1,12 @@
+[Unit]
+Description=AutoHAT jenkins slave script
+After=syslog.target
+
+[Service]
+Restart=always
+RestartSec=10s
+EnvironmentFile=/etc/autohat/jenkins_config
+ExecStart=/etc/autohat/service/run_slave.sh %i
+
+[Install]
+WantedBy=multi-user.target

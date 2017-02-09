@@ -1,0 +1,5 @@
+#!/bin/bash
+
+udevadm trigger
+
+echo "Here we go!"
