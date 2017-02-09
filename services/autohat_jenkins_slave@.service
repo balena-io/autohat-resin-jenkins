@@ -6,7 +6,7 @@ After=syslog.target
 Restart=always
 RestartSec=10s
 EnvironmentFile=/etc/docker.env
-ExecStart=/etc/autohat/service/run_slave.sh %i
+ExecStart=/etc/autohat/services/run_slave.sh %i
 
 [Install]
 WantedBy=multi-user.target

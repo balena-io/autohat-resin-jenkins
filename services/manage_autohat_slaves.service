@@ -3,4 +3,4 @@ Description=AutoHAT Jenkins Slave Manager
 
 [Service]
 Type=simple
-ExecStart=/etc/autohat/service/manage_autohat_slaves.sh
+ExecStart=/etc/autohat/services/manage_autohat_slaves.sh
