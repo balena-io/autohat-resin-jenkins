@@ -11,6 +11,7 @@ RUN apt-get update && \
 		xfsprogs \
 		xz-utils \
 		wget \
+		git \
 	&& cd / \
 	&& wget https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/2.2/swarm-client-2.2-jar-with-dependencies.jar -O swarm-client.jar	
 
