@@ -7,7 +7,7 @@ Restart=always
 RestartSec=10s
 ExecStart=/usr/local/bin/dockerd \
     --host=unix:///var/run/docker.sock \
-    --storage-driver=vfs \
+    --storage-driver=aufs \
     --graph=/data/docker
 
 [Install]
