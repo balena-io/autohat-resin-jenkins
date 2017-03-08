@@ -6,6 +6,7 @@ RUN apt-get update && \
 		curl \
 		openssl \
 		btrfs-tools \
+		aufs-tools \
 		e2fsprogs \	
 		iptables \
 		xfsprogs \
